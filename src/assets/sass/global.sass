@@ -2,28 +2,29 @@ $color_white: #FFFFFD
 $color_pink: #DD8EA4
 $color_background: #F2E9EB
 $color_blue: #31383F
+$color_yellow: #FDDD89
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap')
 // ----------------------------------
-@mixin ab_center
-  position: absolute
-  left: 50%
-  top: 50%
-  transform: translate(-50%,-50%)  
+@mixin pad
+  @media(max-width:768px)
+    @content;
   
-@mixin size($w,$h)
-  width: $w
-  height: $h
+
+@mixin mobile
+  @media(max-width:375px)
+    @content;
+
 // ----------------------------------
 @mixin P 
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
 
 @mixin P_Bold 
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 
 @mixin miniP 
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
 
 @mixin H1 
@@ -38,7 +39,7 @@ $color_blue: #31383F
   font-size: 24px;
   font-weight: 400;
 
-
 @mixin H2_Bold 
   font-size: 24px;
   font-weight: 700;
+// ----------------------------------

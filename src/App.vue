@@ -29,8 +29,19 @@ html,body
   padding: 0 !important
 html
   overflow-x: hidden
+button, input[type="submit"], input[type="reset"]
+	background: none
+	color: inherit
+	border: none
+	padding: 0
+	font: inherit
+	cursor: pointer
+	outline: inherit
+p
+  margin: 0
 .app
   min-height: calc(100vh - 60px)
   margin-top: 60px
   background-color: $color_white
+  padding-bottom: 60px
 </style>
