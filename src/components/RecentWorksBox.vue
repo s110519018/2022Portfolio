@@ -25,19 +25,22 @@ export default {
   min-height: 600px
   border-radius: 20px
   background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url('https://www.placecage.com/c/460/300')
+  background-position: center
   color: $color_white
   display: flex
   flex-direction: column
-  justify-content: flex-end
+  justify-content: center
   align-items: center
   gap: 28px 0px
   @include mobile
     padding: 2px
+    width: calc( 100vw - 20px)
   h1
     @include H1_Bold
     word-break: break-all
     @include mobile
       @include H2_Bold
+      max-width: 200px
   .shortline
     transition: width 1s;
     width: 0px
@@ -48,8 +51,10 @@ export default {
     transition: opacity 1s;
     opacity: 0
     @include P
+    @include mobile
+      max-width: 200px
+      word-break: break-all
   &:hover
-    justify-content: center
     .shortline
       width: 64px
     p

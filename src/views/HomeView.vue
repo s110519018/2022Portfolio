@@ -44,15 +44,15 @@ Fragment
         p 2022 交通數據應用競賽
         p 2021 資訊應用服務競賽 資訊應用組 第二名
         p 2020 APP 移動應用創新賽 晉級決賽
-    ButtonBox(path="about" content="More About Me")
+    ButtonBox(action="router" path="about" content="More About Me")
     .shortline
   .works
     .title Recent Works
     .RecentWorksBoxes
-      RecentWorksBox(msg="Welcome components")
-      RecentWorksBox(msg="App @/components/AboutMeBox.vue")
-      RecentWorksBox(msg="Your")
-    ButtonBox(path="portfolio" content="More Works")
+      RecentWorksBox(msg="巴巴走")
+      RecentWorksBox(msg="疫距數得")
+      RecentWorksBox(msg="數位系系網")
+    ButtonBox(action="router" path="portfolio" content="More Works")
 </template>
 
 <script>
@@ -83,6 +83,8 @@ export default {
   padding-top: 116px
   min-height: 640px
   @include mobile
+    padding-top: 64px
+  @include pad
     padding-top: 64px
   .Box
     display: flex
@@ -124,9 +126,12 @@ export default {
       display: flex
       flex-direction: column
       gap: 24px
+      @include pad
+        align-items: center
+        padding: 0px 12px
       @include mobile
-          @include P_Bold
-          align-items: center
+        @include P_Bold
+        align-items: center
       .school
         display: flex
         flex-direction: row
@@ -134,6 +139,9 @@ export default {
         align-items: center
         @include mobile
           @include miniP
+          svg
+            display: none
+        @include pad
           svg
             display: none
       .contact
@@ -160,9 +168,9 @@ export default {
   gap: 60px
   .title
     align-self: start
-    word-break: break-all
     @include mobile
       align-self: center
+      text-align: center
   .shortline
     width: 64px
     height: 6px

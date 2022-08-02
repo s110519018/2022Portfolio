@@ -1,5 +1,5 @@
 <template lang="pug">
-button.buttonBox(@click="changePage(this.path)") {{ content }}
+button.buttonBox(@click="changePage(this.action,this.path)") {{ content }}
 </template>
 
 <script>
@@ -8,12 +8,13 @@ export default {
   name: "ButtonBox",
   props: {
     content: String,
+    action: String,
     path: String,
   },
   methods: {
-    changePage(path) {
-      // Do your stuff
-      router.push("/" + path);
+    changePage(action, path) {
+      if (action == "router") router.push("/" + path);
+      else window.location.href = path;
     },
   },
 };
