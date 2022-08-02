@@ -42,4 +42,6 @@ export default {
       flex-basis: 50%
       text-align: center
       margin-bottom: 0
+      @include mobile
+        flex-basis: 100%
 </style>

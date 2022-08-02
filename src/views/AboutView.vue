@@ -86,10 +86,14 @@ export default {
 .skills,.experience,.contact
   padding: 0px 100px
   margin-bottom: 52px
+  @include pad
+    padding: 0px 20px
   .title
     margin-bottom: 52px
 .title
   @include H1_Bold
+  @include mobile
+    @include H2_Bold
 .about
   box-sizing: border-box
   padding: 108px 40px
@@ -97,15 +101,16 @@ export default {
   justify-content: center
   flex-wrap: wrap
   gap: 24px 160px
-
+  @include pad
+    padding: 40px 20px
   .imgBox
     position: relative
     width: 20%
     min-width: 320px
     min-height: 400px
     @include mobile
-      width: 200px
-      height: 200px
+      min-width: 200px
+      min-height: 260px
     .img
       position: absolute
       z-index: 1
@@ -117,6 +122,8 @@ export default {
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
       border-radius: 20px
       transform: rotate(-3.78deg)
+      @include pad
+        transform: rotate(0deg)
     .bg
       box-sizing: border-box
       position: absolute
@@ -129,7 +136,8 @@ export default {
       border-radius: 20px
       transform: rotate(12deg)
       background-color: transparent
-
+      @include pad
+        display: none
   .wordBox
     width: 60%
     display: flex
@@ -173,10 +181,16 @@ export default {
     aspect-ratio: 1 / 1
     height: 100%;
     border-radius: 50%
-    max-width: 260px
+    max-width: 280px
     padding: 60px
     box-sizing: border-box
     background-color: $color_yellow
+    @include pad
+      max-width: 240px
+      padding: 44px
+    @include mobile
+      max-width: 180px
+      padding: 28px
     svg
       width: 100%
       height: 100%
