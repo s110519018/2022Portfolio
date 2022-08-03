@@ -119,6 +119,8 @@ export default {
         border-radius: 100%
         background-image: url(../assets/img/img_bg.svg)
         background-size: cover
+        @include mobile
+          display: none
     .wordBox
       margin-top: 28px
       color: $color_blue
@@ -195,6 +197,9 @@ export default {
       flex-grow: 1
       width: 80px
       height: 80px
+      @include mobile
+        width: 40px
+        height: 40px
 
 .RecentWorksBoxes
   display: flex

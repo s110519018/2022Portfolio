@@ -57,10 +57,10 @@ export default {
   display: flex
   flex-direction: column
   justify-content: center
-  gap: 10px
+  gap: 12px
 .horizontal
   display: flex
   justify-content: space-around
   flex-wrap: wrap
-  gap: 10px
+  gap: 12px
 </style>

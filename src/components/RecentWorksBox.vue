@@ -22,7 +22,7 @@ export default {
   padding: 20px
   text-align: center
   width: 360px
-  min-height: 600px
+  height: 600px
   border-radius: 20px
   background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url('https://www.placecage.com/c/460/300')
   background-position: center
@@ -34,7 +34,8 @@ export default {
   gap: 28px 0px
   @include mobile
     padding: 2px
-    width: calc( 100vw - 20px)
+    width: calc( 100vw - 40px)
+    height: 400px
   h1
     @include H1_Bold
     word-break: break-all

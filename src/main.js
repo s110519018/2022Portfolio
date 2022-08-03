@@ -9,6 +9,7 @@ import {
   faEnvelope,
   faGlobe,
   faPenRuler,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -18,7 +19,8 @@ library.add(
   faFacebook,
   faEnvelope,
   faGlobe,
-  faPenRuler
+  faPenRuler,
+  faAngleLeft
 );
 createApp(App)
   .use(router)
