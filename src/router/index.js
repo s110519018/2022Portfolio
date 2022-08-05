@@ -21,14 +21,21 @@ const routes = [
     meta: { title: "Portfolio" },
   },
   {
-    path: "/portfolio/:id",
+    path: "/portfoliodetail/:id",
     name: "portfoliodetail",
     component: () => import("../views/PortfoliodetailView.vue"),
+    meta: { title: "Portfoliodetail" },
+    props: true,
+  },
+  {
+    //不符合的自動匹配
+    path: "/:catchAll(.*)",
+    component: HomeView,
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(process.env.VUE_APP_BASE_URL),
   routes,
 });
 

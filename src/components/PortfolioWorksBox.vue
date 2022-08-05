@@ -1,13 +1,32 @@
 <template lang="pug">
-.portfolioWorksBox
+.portfolioWorksBox(:style="imageVars" @click.prevent="goDetail()")
   h1 {{ title }}
 </template>
 
 <script>
+import router from "../router/index.js";
 export default {
   name: "PortfolioWorksBox",
   props: {
     title: String,
+    image: String,
+    obj: Object,
+  },
+  computed: {
+    imageVars() {
+      return (
+        "--image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(" +
+        "'" +
+        this.image +
+        "')"
+      );
+    },
+  },
+  methods: {
+    goDetail() {
+      this.$store.commit("SET_WORK_DATA", this.obj);
+      router.push("/portfoliodetail/" + this.obj.id);
+    },
   },
 };
 </script>
@@ -24,35 +43,17 @@ export default {
   max-width: 400px
   max-height: 360px
   border-radius: 20px
-  background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url('https://www.placecage.com/c/460/300')
+  // background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url('https://www.placecage.com/c/460/300')
+  background: var(--image)
   background-position: center
+  background-size: 100%
   color: $color_white
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  transition: 0.5s
+  transition: all 0.5s ease-in-out
   position: relative
-  &:before,&:after
-    content: ''
-    position: absolute
-    transition: all .5s ease-in
-  &:before
-    width: 80%
-    height: 60%
-    left: 10%
-    top: 20%
-    border-top: 1px solid transparent
-    border-bottom: 1px solid transparent
-    transform: scale(0,1)
-  &:after
-    width: 60%
-    height: 80%
-    top: 10%
-    left: 20%
-    border-right: 1px solid transparent
-    border-left: 1px solid transparent
-    transform: scale(1,0)
   @include mobile
     width: calc( 100vw - 20px)
   h1
@@ -64,14 +65,7 @@ export default {
       @include H2_Bold
       max-width: 200px
   &:hover
-    &:before
-      border-top: 1px solid white
-      border-bottom: 1px solid white
-      transform: scale(1,1)
-    &:after
-      border-right: 1px solid white
-      border-left: 1px solid white
-      transform: scale(1,1)
+    background-size: 130%
     h1
       opacity: 1
 </style>

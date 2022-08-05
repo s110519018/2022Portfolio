@@ -7,24 +7,32 @@ Fragment
     .detailBox
       .Box_img
       .Box_content
-        .content_title Title
-        .content_time 2022/7
-        .content_job 負責工作
-        .content_content 參與從零到有的環境開發設置，與一名資深工程師開創後台系統，使用前端主流生態 React 與 Redux，搭配 RxJS 進行非同步請求處理，近期加入 React hooks 應用， 學習到模組化管理、前端框架應用、Webview 實作經驗與後端工程師討論 API 規格，構想多種錯誤情況處理，產品開發上獨自完成 UI / UX，聽取使用者回饋進行改善，細心特質可交付高完成度、低錯誤率的作品。透過其他學習網站 Udemy 課程和書籍精進與驗證技能， 閱覽 Medium 文章及加入社團接收新知，成為擁有設計觀感、提升使用者體驗的開發者。
+        .content_title {{workData.title}}
+        .content_time {{workData.time}}
+        .content_job {{workData.job}}
+        .content_content(v-html="workData.content")
         .content_skillsbox
-          .skill Skill
+          .skill(v-for="skill in workData.skills") {{skill}}
         ButtonBox(action="router" path="portfolio" content="More Works")
 </template>
 
 <script>
 import router from "../router/index.js";
 import ButtonBox from "@/components/ButtonBox.vue";
-
+import { mapState } from "vuex";
 export default {
   name: "PortfoliodetailView",
   components: {
     ButtonBox,
   },
+  props: {
+    id: String,
+  },
+  computed: mapState([
+    // 需要的state在這邊
+    "isLoading",
+    "workData",
+  ]),
   methods: {
     goBack() {
       router.back();
@@ -98,6 +106,11 @@ export default {
         background-color: $color_pink
         border-radius: 8px
       .content_skillsbox
+        display: flex
+        gap: 12px
+        flex-wrap: wrap
+        @include pad
+          justify-content: center
       .skill
         display: flex
         flex-direction: column

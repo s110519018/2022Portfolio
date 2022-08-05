@@ -10,9 +10,12 @@ import {
   faGlobe,
   faPenRuler,
   faAngleLeft,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import store from "./store";
+
 library.add(
   faGraduationCap,
   faGithub,
@@ -20,9 +23,12 @@ library.add(
   faEnvelope,
   faGlobe,
   faPenRuler,
-  faAngleLeft
+  faAngleLeft,
+  faSpinner
 );
+
 createApp(App)
   .use(router)
+  .use(store)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");

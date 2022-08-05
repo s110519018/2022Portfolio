@@ -82,10 +82,12 @@ export default {
   background-color: $color-background
   padding-top: 116px
   min-height: 640px
-  @include mobile
-    padding-top: 64px
   @include pad
     padding-top: 64px
+    min-height: 880px
+  @include mobile
+    padding-top: 40px
+    min-height: 640px
   .Box
     display: flex
     justify-content: center

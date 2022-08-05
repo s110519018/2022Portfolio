@@ -1,15 +1,14 @@
 <template lang="pug">
 Fragment
-  .portfolio
+  .loading(v-if="loading")
+    font-awesome-icon(icon='spinner' spin)
+  .portfolio(v-if="!loading")
     .title Portfolio
     .category
       li(v-for="item in filter.list")
         a(@click.prevent="changeCategory(item)" href="#" :class="{ selected: this.filter.str==item }") {{item}}
-    .portfolioBoxes
-      PortfolioWorksBox(title="疫距數得")
-      PortfolioWorksBox(title="疫距數得")
-      PortfolioWorksBox(title="疫距數得")
-      PortfolioWorksBox(title="疫距數得")
+    .portfolioBoxes(v-for="data in displayedWorks")
+      PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img")
 
 </template>
 
@@ -22,27 +21,36 @@ export default {
   data() {
     return {
       filter: {
-        list: ["ALL", "Web", "APP", "UIDesign", "Others"],
+        list: ["ALL", "Frontend", "UIDesign", "Others"],
         str: "ALL",
       },
     };
+  },
+  computed: {
+    loading() {
+      return this.$store.state.isLoading;
+    },
+    displayedWorks() {
+      const category = this.filter.str;
+      if (category !== "ALL") {
+        let filterPro = this.$store.state.worksData.filter(function (item) {
+          return item.category == category;
+        });
+        return filterPro;
+      } else {
+        return this.$store.state.worksData;
+      }
+    },
+  },
+  created() {
+    console.clear();
+    // 讀取firebase資料
+    this.$store.dispatch("getWorksData");
   },
   methods: {
     changeCategory(str) {
       const vm = this;
       vm.filter.str = str;
-    },
-    getCategory() {
-      // this.$http.get(url).then((response) => {
-      //   if (vm.filter.str !== "ALL") {
-      //     let filterPro = response.data.products.filter(function (item) {
-      //       return item.category == vm.filter.str;
-      //     });
-      //     vm.products = filterPro;
-      //   } else {
-      //     vm.products = response.data.products;
-      //   }
-      // });
     },
   },
 };
@@ -50,6 +58,14 @@ export default {
 
 <style lang="sass" scoped>
 @import "../assets/sass/global.sass";
+.loading
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  font-size: 60px
+  color: $color_blue
 .selected
   text-decoration: underline !important
 .title
