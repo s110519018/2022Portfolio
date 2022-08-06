@@ -25,7 +25,7 @@ Fragment
     .AboutMeBoxes
       AboutMeBox(vertical=false title="Skills")
         .skill-item
-          font-awesome-icon(:icon="['fas', 'envelope']")
+          font-awesome-icon(:icon="['fas', 'laptop-code']")
           span Web
           span Development
         .skill-item
@@ -38,10 +38,10 @@ Fragment
           span TOPIK II
       AboutMeBox(vertical=true title="Work Experience")
         p 2020/9 - 2022/8 資策會 企劃與推廣處 工讀  
-        p 2020/9 - 2022/8 資策會 企劃與推廣處 工讀  
+        p 2019/7 - 2019/12 Digi+ Talent 計畫 實習
         p 2017/7 - 2019/8 吉的堡美語 工讀 
       AboutMeBox(vertical=true title="Accomplishment")
-        p 2022 交通數據應用競賽
+        p 2022 交通數據應用競賽 晉級決賽
         p 2021 資訊應用服務競賽 資訊應用組 第二名
         p 2020 APP 移動應用創新賽 晉級決賽
     ButtonBox(action="router" path="about" content="More About Me")
@@ -54,7 +54,7 @@ Fragment
         Skeletor(width="360" height="600" )
         Skeletor(width="360" height="600" )
       Fragment(v-if="!loading" v-for="data in displayedWorks")
-        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :content="data.content")
+        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :category="data.category")
     ButtonBox(action="router" path="portfolio" content="More Works")
 </template>
 

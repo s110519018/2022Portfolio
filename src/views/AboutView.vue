@@ -17,42 +17,81 @@ Fragment
     .title Skills
     .SkillsBoxes
       SkillsBox(title="Web Development")
-        p HTML/CSS/JS
+        p HTML/CSS/JavaScript
+        p jQuery
+        p Sass/Scss
         p React
-        p Ajax
+        p Git Version Control
         p Node.js
-        p Vue(學習中)
-        p React
-        p Ajax
-        p Node.js
+        p Npm & Yarn
         p Vue(學習中)
       SkillsBox(title="UI Design")
-        p HTML/CSS/JS
-        p React
-        p Ajax
-        p Node.js
-        p Vue(學習中)
+        p Figma
+        p Photoshop
+        p Illustrator
       SkillsBox(title="Others")
-        p HTML/CSS/JS
-        p React
-        p Ajax
-        p Node.js
-        p Vue(學習中)
+        p After Effects
+        p Unity
+        p Bottender
   .experience
     .title Experience
     Timeline(theme="#DC8EA4")
       TimelineItem(bg-color="#FDDD89" icon-size="medium")
-        h1 2020/9 - 2022/8 
+        h1.time 2022 
+        h1 以雙人合作機制改善拖延之 LINE 聊天機器人設計
+        ul
+          li  【畢業論文】指導教授：范丙林、俞齊山博士
+          li 開發LINE 聊天機器人，以雙人合作的方式協助拖延者任務管理並透過對話干預錯誤觀念。
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+        h1.time 2022 
+        h1 交通數據應用競賽 晉級決賽
+        ul
+          li  協助行動不便者搭乘公車之PWA(漸進式網頁應用程式)【巴巴走】
+          li  負責工作: 前端
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+        h1.time 2020/9 - 2022/8 
         h1 資策會 企劃與推廣處 工讀
-        p  lala
+        ul
+          li  負責工作: 處內系統測試、行政事務處理
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+        h1.time 2021
+        h1 資訊應用服務競賽 資訊應用組十 第二名
+        ul
+          li  在Google Meet遠距線上教學中透過鏡頭偵測學生專心度並協助教師進行課程狀態管理之Chrome擴充套件【疫距數得】 
+          li  負責工作: 介面設計、前端、影片剪輯
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+        h1.time 2021
+        h1 「在家當宅宅，疫齊護台灣」企劃徵稿大賽 第二名&最具創意獎
+        ul
+          li  企劃內容為將民眾對醫護人員感謝之文字及圖像製作成貼圖進行販售，並將所得捐出給醫護人員。
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+        h1.time 2021/12/12 
+        h1 TANET 台灣網際網路研討會
+        ul
+          li  發表論文【基於代理人機制之Google Meet遠距教學輔助系統實作】
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+        h1.time 2021/03/25
+        h1 TWELF 台灣數位學習發展研討會
+        ul
+          li  發表海報論文【具專注度評估之多人線上視訊教學系統設計初探】
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+        h1.time 2020 
+        h1 APP 移動應用創新賽 晉級決賽
+        ul
+          li  記錄心情並能不受時空間限制對朋友表達關心之APP【顏色 countenance】 
+          li  負責工作: 前端、影片剪輯
       TimelineItem(bg-color="#FDDD89" icon-size="medium") 
-        h1 2020/9 - 2022/8 
-        h1 資策會 企劃與推廣處 工讀
-        p  lala
+        h1.time 2019/7 - 2019/12 
+        h1 Digi+ Talent 計畫 商研院實習生
+        ul
+          li  實習單位: 商研院 KKday
+          li  專題: 以機器學習降低盜刷風險 【入選Digi+數位新星大賞】
+          li  負責工作: 成果網頁製作（介面設計、程式）
       TimelineItem(bg-color="#FDDD89" icon-size="medium") 
-        h1 2020/9 - 2022/8 
-        h1 資策會 企劃與推廣處 工讀
-        p  lalalala
+        h1.time 2017/7 - 2019/8
+        h1 蘆洲吉的堡美語 工讀
+        ul
+          li  負責工作: 國小學童美語補課、作業輔導、電話測驗
   .contact
     .title Contact
     .contactBoxes
@@ -166,9 +205,14 @@ export default {
     gap: 40px
 
 .experience
+  .time
+    @include P_Bold
   h1
     @include H2_Bold
-
+  ul
+    margin-top: 20px
+    li
+     margin-top: 4px
 .contact
   .contactBoxes
     display: flex

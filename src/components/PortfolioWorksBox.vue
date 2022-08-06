@@ -2,6 +2,7 @@
 .portfolioWorksBox(@click.prevent="goDetail()")
   h1 {{ title }}
   .shortline
+  p {{ category }}
   img(:src='image')
 </template>
 
@@ -12,7 +13,7 @@ export default {
   props: {
     title: String,
     image: String,
-    content: String,
+    category: String,
     obj: Object,
   },
   methods: {

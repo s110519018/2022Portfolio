@@ -11,6 +11,8 @@ import {
   faPenRuler,
   faAngleLeft,
   faSpinner,
+  faLaptopCode,
+  faLightbulb,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -24,7 +26,9 @@ library.add(
   faGlobe,
   faPenRuler,
   faAngleLeft,
-  faSpinner
+  faSpinner,
+  faLaptopCode,
+  faLightbulb
 );
 
 createApp(App)

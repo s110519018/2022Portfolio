@@ -1,7 +1,9 @@
 <template lang="pug">
 .SkillsBox
   .icon
-    font-awesome-icon(:icon="['fas', 'pen-ruler']")
+    font-awesome-icon(:icon="['fas', 'laptop-code']" v-if="title =='Web Development'")
+    font-awesome-icon(:icon="['fas', 'pen-ruler']" v-if="title =='UI Design'")
+    font-awesome-icon(:icon="['fas', 'lightbulb']" v-if="title =='Others'")
   .title {{title}}
   .skills
     slot 哈囉
@@ -31,6 +33,11 @@ export default {
   @include H2
   @include mobile
     @include P
+  .title
+    @include H2_Bold
+    @include mobile
+      text-align: center
+      @include H2
   .icon
     font-size: 100px
   .skills

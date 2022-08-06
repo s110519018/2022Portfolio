@@ -9,7 +9,7 @@ Fragment
         a(@click.prevent="changeCategory(item)" href="#" :class="{ selected: this.filter.str==item }") {{item}}
     .portfolioBoxes
       Fragment(v-for="data in displayedWorks")
-        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :content="data.content")
+        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :category="data.category")
 
 </template>
 
