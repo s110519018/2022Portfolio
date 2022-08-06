@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc } from "firebase/firestore";
 
 export const actions = {
   async getWorksData({ commit }) {
@@ -13,10 +13,21 @@ export const actions = {
           id: doc.id,
         });
       });
-      console.log(documents);
       commit("SET_WORKS_DATA", documents);
     } catch (error) {
       console.log("getWorksData失敗! " + error);
+    }
+  },
+  async getWorkData({ commit }, payload) {
+    try {
+      commit("WORK_DATA_REQUEST");
+      const docSnap = await getDoc(doc(db, "works", payload));
+      if (docSnap.exists()) {
+        console.log(docSnap.data());
+      }
+      commit("SET_WORK_DATA", docSnap.data());
+    } catch (error) {
+      console.log("getWorkData失敗! " + error);
     }
   },
 };

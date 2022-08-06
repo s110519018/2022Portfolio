@@ -1,11 +1,14 @@
 <template lang="pug">
 Fragment
-  .portfoliodetail
+  .loading(v-if="isLoading")
+    font-awesome-icon(icon='spinner' spin)
+  .portfoliodetail(v-if="!isLoading")
     a.backBtn(@click.prevent="goBack()")
       font-awesome-icon(:icon="['fas', 'angle-left']")
       h1 Back
     .detailBox
       .Box_img
+        img(:src="workData.img")
       .Box_content
         .content_title {{workData.title}}
         .content_time {{workData.time}}
@@ -13,7 +16,9 @@ Fragment
         .content_content(v-html="workData.content")
         .content_skillsbox
           .skill(v-for="skill in workData.skills") {{skill}}
-        ButtonBox(action="router" path="portfolio" content="More Works")
+        .content_bottonsbox
+          Fragment(v-for="button in workData.btn")
+            ButtonBox(action="link" :path="button.btn_content" :content="button.btn_title")
 </template>
 
 <script>
@@ -28,14 +33,35 @@ export default {
   props: {
     id: String,
   },
-  computed: mapState([
-    // 需要的state在這邊
-    "isLoading",
-    "workData",
-  ]),
+  computed: {
+    ...mapState([
+      // 需要的state在這邊
+      "isLoading",
+      "workData",
+    ]),
+  },
+  created() {
+    console.log(this.workData);
+    // 在頁面載入時讀取sessionStorage裡的狀態資訊
+    if (sessionStorage.getItem("workData")) {
+      let session_data = JSON.parse(sessionStorage.getItem("workData"));
+      if (this.id === session_data.id) {
+        this.$store.commit("SET_WORK_DATA", session_data);
+      }
+    } else if (this.workData === null) {
+      // 讀取firebase資料
+      this.$store.dispatch("getWorkData", this.id);
+    }
+
+    // 在頁面重新整理時將vuex裡的資訊儲存到sessionStorage裡
+    // beforeunload事件在頁面重新整理時先觸發
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("workData", JSON.stringify(this.workData));
+    });
+  },
   methods: {
     goBack() {
-      router.back();
+      router.push("/portfolio");
     },
   },
 };
@@ -43,10 +69,19 @@ export default {
 
 <style lang="sass" scoped>
 @import "../assets/sass/global.sass";
+.loading
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100vw
+  height: 100vh
+  font-size: 60px
+  color: $color_blue
+
 .portfoliodetail
   padding: 108px 40px
   @include pad
-    padding: 20px
+    padding: 12px
 
   .backBtn
     display: flex
@@ -69,12 +104,13 @@ export default {
       flex-wrap: wrap
       justify-content: space-around
     .Box_img
-      width: 400px
-      height: 400px
-      background: url('https://www.placecage.com/c/460/300')
-      background-position: center
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
-      border-radius: 20px
+      @include pad
+        width: 70%
+      @include mobile
+        width: 100%
+      img
+        width: 100%
+        height: 100%
     .Box_content
       width: 70%
       display: flex
@@ -96,8 +132,12 @@ export default {
           border-radius: 32px
           margin-top: 16px
         @include pad
+          text-align: center
           &:after
             width: 100%
+            height: 3px
+        @include mobile
+          @include H2_Bold
       .content_time
         @include miniP
         word-break: break-all
@@ -105,7 +145,10 @@ export default {
         padding: 10px 12px
         background-color: $color_pink
         border-radius: 8px
-      .content_skillsbox
+      .content_content
+        @include pad
+          text-align: center
+      .content_skillsbox,.content_bottonsbox
         display: flex
         gap: 12px
         flex-wrap: wrap

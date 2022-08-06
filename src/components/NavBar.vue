@@ -2,21 +2,28 @@
 nav.navbar.navbar-expand-lg.fixed-top
   .container-fluid
     router-link.navbar-brand(to="/")  -YuXuan-
-    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' ref="toggleButton")
       span.navbar-toggler-icon  
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.ms-auto.mb-2.mb-lg-0
-        li.nav-item
+        li.nav-item(@click="CollapseEvent")
           router-link.nav-link(to="/" active-class="active")  HOME 
-        li.nav-item
+        li.nav-item(@click="CollapseEvent")
           router-link.nav-link(to="/about" active-class="active")  ABOUT 
-        li.nav-item
+        li.nav-item(@click="CollapseEvent")
           router-link.nav-link(to="/portfolio" active-class="active")  PORTFOLIO 
 </template>
 
 <script>
 export default {
   name: "NavBar",
+  methods: {
+    CollapseEvent() {
+      if (window.screen.width < 925) {
+        this.$refs.toggleButton.click();
+      }
+    },
+  },
 };
 </script>
 

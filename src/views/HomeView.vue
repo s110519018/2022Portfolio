@@ -49,24 +49,43 @@ Fragment
   .works
     .title Recent Works
     .RecentWorksBoxes
-      RecentWorksBox(msg="巴巴走")
-      RecentWorksBox(msg="疫距數得")
-      RecentWorksBox(msg="數位系系網")
+      .loading_block(v-if="loading")
+        Skeletor(width="360" height="600" )
+        Skeletor(width="360" height="600" )
+        Skeletor(width="360" height="600" )
+      Fragment(v-if="!loading" v-for="data in displayedWorks")
+        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :content="data.content")
     ButtonBox(action="router" path="portfolio" content="More Works")
 </template>
 
 <script>
 // @ is an alias to /src
-import RecentWorksBox from "@/components/RecentWorksBox.vue";
+import "vue-skeletor/dist/vue-skeletor.css";
+import { Skeletor } from "vue-skeletor";
+import PortfolioWorksBox from "@/components/PortfolioWorksBox.vue";
 import AboutMeBox from "@/components/AboutMeBox.vue";
 import ButtonBox from "@/components/ButtonBox.vue";
 
 export default {
   name: "HomeView",
   components: {
-    RecentWorksBox,
+    Skeletor,
+    PortfolioWorksBox,
     AboutMeBox,
     ButtonBox,
+  },
+  computed: {
+    loading() {
+      return this.$store.state.isLoading;
+    },
+    displayedWorks() {
+      return this.$store.state.worksData.slice(0, 3);
+    },
+  },
+  created() {
+    console.clear();
+    // 讀取firebase資料
+    this.$store.dispatch("getWorksData");
   },
 };
 </script>
@@ -208,4 +227,46 @@ export default {
   justify-content: space-around
   flex-wrap: wrap
   gap: 20px 100px
+  .loading_block
+    display: flex
+    gap: 20px 100px
+.vue-skeletor
+  position: relative
+  overflow: hidden
+  background-color: rgba(0, 0, 0, 0.12)
+
+  &:not(.vue-skeletor--shimmerless):after
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    transform: translateX(-100%)
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(37, 22, 22, 0))
+    animation: shimmer 1.5s infinite
+    content: ''
+
+.vue-skeletor--rect
+  display: block
+  border-radius: 20px
+
+.vue-skeletor--circle
+  display: block
+  border-radius: 50%
+
+.vue-skeletor--pill
+  border-radius: 9999px
+
+.vue-skeletor--text
+  border-radius: 9999px
+  line-height: 1
+  display: inline-block
+  width: 100%
+  height: inherit
+  vertical-align: middle
+  top: -1px
+
+@keyframes shimmer
+  100%
+    transform: translateX(100%)
 </style>

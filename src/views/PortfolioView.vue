@@ -7,8 +7,9 @@ Fragment
     .category
       li(v-for="item in filter.list")
         a(@click.prevent="changeCategory(item)" href="#" :class="{ selected: this.filter.str==item }") {{item}}
-    .portfolioBoxes(v-for="data in displayedWorks")
-      PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img")
+    .portfolioBoxes
+      Fragment(v-for="data in displayedWorks")
+        PortfolioWorksBox(:key="data.id" :obj="data" :title="data.title" :image="data.img" :content="data.content")
 
 </template>
 

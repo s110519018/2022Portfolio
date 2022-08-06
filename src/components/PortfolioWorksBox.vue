@@ -1,6 +1,8 @@
 <template lang="pug">
-.portfolioWorksBox(:style="imageVars" @click.prevent="goDetail()")
+.portfolioWorksBox(@click.prevent="goDetail()")
   h1 {{ title }}
+  .shortline
+  img(:src='image')
 </template>
 
 <script>
@@ -10,17 +12,8 @@ export default {
   props: {
     title: String,
     image: String,
+    content: String,
     obj: Object,
-  },
-  computed: {
-    imageVars() {
-      return (
-        "--image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url(" +
-        "'" +
-        this.image +
-        "')"
-      );
-    },
   },
   methods: {
     goDetail() {
@@ -36,36 +29,36 @@ export default {
 .portfolioWorksBox
   cursor: pointer
   box-sizing: border-box
+  padding-top: 40px
+  padding-bottom: 0
   text-align: center
-  width: 100vw
-  height: 100vh
-  aspect-ratio: 10 / 9
-  max-width: 400px
-  max-height: 360px
+  width: 360px
   border-radius: 20px
-  // background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.3)),url('https://www.placecage.com/c/460/300')
-  background: var(--image)
-  background-position: center
-  background-size: 100%
-  color: $color_white
+  background-color: $color_background
+  color: $color_blue
   display: flex
   flex-direction: column
-  justify-content: center
+  justify-content: flex-start
   align-items: center
-  transition: all 0.5s ease-in-out
-  position: relative
+  gap: 12px 0px
+  transition: 0.5s
   @include mobile
-    width: calc( 100vw - 20px)
+    padding-top: 20px
+    width: calc( 100vw - 40px)
   h1
-    opacity: 0.7
-    transition: 0.5s
-    @include H1_Bold
+    padding: 0 20px
+    @include H2_Bold
     word-break: break-all
-    @include mobile
-      @include H2_Bold
-      max-width: 200px
+  .shortline
+    width: 64px
+    height: 6px
+    background-color: $color_blue
+    border-radius: 32px
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    margin: auto
   &:hover
-    background-size: 130%
-    h1
-      opacity: 1
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 </style>
