@@ -55,6 +55,8 @@ export default {
     height: 6px
     background-color: $color_blue
     border-radius: 32px
+  p
+    margin-bottom: 0
   img
     width: 100%
     height: 100%

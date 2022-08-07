@@ -7,12 +7,12 @@ Fragment
     .wordBox
       .title About Me
       .content 
-        p 參與從零到有的環境開發設置，與一名資深工程師開創後台系統，使用前端主流生態 React 與 Redux，搭配 RxJS 進行非同步請求處理，近期加入 React hooks 應用， 學習到模組化管理、前端框架應用、Webview 實作經驗。
-        p 與後端工程師討論 API 規格，構想多種錯誤情況處理，產品開發上獨自完成 UI / UX，聽取使用者回饋進行改善，細心特質可交付高完成度、低錯誤率的作品。
-        p 透過其他學習網站 Udemy 課程和書籍精進與驗證技能， 閱覽 Medium 文章及加入社團接收新知，成為擁有設計觀感、提升使用者體驗的開發者。
+        p 我是李淯萱，生於1998年，大學畢業於北教大數位系，並持續進階至北教大玩遊所深造，目前已於2022年六月畢業，在校六年來的學習讓我對前端技術培養了熱忱及興趣，並且對美感也有一定的要求。
+        p 在校期間曾參與數個實驗室專案及競賽，其中包含系網更新、資訊應用服務競賽獲得第二名、於 TANET 台灣網際網路研討會發表論文等，過程中增加團隊開發經驗及專業知識、聽取使用者回饋進行改善。
+        p 未來將透過SideProject的參與、學習網站 （Udemy、六角學院等） 課程，以及閱讀 Medium、iT 邦幫忙等文章、加入社團獲取新知識、精進及驗證技能，持續提升前後端開發能力，朝向全端工程師前進，也希望能夠利用時間提升自己的外語能力，包含英文及韓文。
       .ButtonBox
         ButtonBox(action="link" path="https://www.facebook.com/profile.php?id=100005284330987" content="Contact Me")
-        ButtonBox(action="link" path="https://github.com/s110519018" content="Download Resume")
+        ButtonBox(action="link" path="https://drive.google.com/file/d/1MA65aaeF6zMqBaSRM_AVxZVYv0CuuFxz/view?usp=sharing" content="Download Resume")
   .skills
     .title Skills
     .SkillsBoxes
@@ -36,63 +36,69 @@ Fragment
   .experience
     .title Experience
     Timeline(theme="#DC8EA4")
-      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
         h1.time 2022 
         h1 以雙人合作機制改善拖延之 LINE 聊天機器人設計
         ul
           li  【畢業論文】指導教授：范丙林、俞齊山博士
-          li 開發LINE 聊天機器人，以雙人合作的方式協助拖延者任務管理並透過對話干預錯誤觀念。
-      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+          li 開發LINE 聊天機器人，以雙人合作的方式協助拖延者任務管理並透過對話干預錯誤觀念
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
         h1.time 2022 
         h1 交通數據應用競賽 晉級決賽
         ul
           li  協助行動不便者搭乘公車之PWA(漸進式網頁應用程式)【巴巴走】
-          li  負責工作: 前端
-      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+          li  負責工作: 前端程式
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
         h1.time 2020/9 - 2022/8 
         h1 資策會 企劃與推廣處 工讀
         ul
           li  負責工作: 處內系統測試、行政事務處理
-      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+          li  透過此工作不僅參與兩個系統開發的進行，並學習到Excel、PowerPoint於實務中操作之技巧
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
         h1.time 2021
         h1 資訊應用服務競賽 資訊應用組十 第二名
         ul
-          li  在Google Meet遠距線上教學中透過鏡頭偵測學生專心度並協助教師進行課程狀態管理之Chrome擴充套件【疫距數得】 
-          li  負責工作: 介面設計、前端、影片剪輯
-      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+          li  遠距教學中透過鏡頭偵測學生專心度並協助教師管理課程之Chrome擴充套件【疫距數得】 
+          li  執行平台: Google Meet 
+          li  負責工作: 介面設計、前端程式、影片剪輯
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
         h1.time 2021
         h1 「在家當宅宅，疫齊護台灣」企劃徵稿大賽 第二名&最具創意獎
         ul
-          li  企劃內容為將民眾對醫護人員感謝之文字及圖像製作成貼圖進行販售，並將所得捐出給醫護人員。
-      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+          li  企劃內容: 將民眾對醫護人員感謝之文字及圖像製作成貼圖販售，將所得回饋醫護人員
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
         h1.time 2021/12/12 
         h1 TANET 台灣網際網路研討會
         ul
           li  發表論文【基於代理人機制之Google Meet遠距教學輔助系統實作】
-      TimelineItem(bg-color="#FDDD89" icon-size="medium")
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
         h1.time 2021/03/25
         h1 TWELF 台灣數位學習發展研討會
         ul
           li  發表海報論文【具專注度評估之多人線上視訊教學系統設計初探】
-      TimelineItem(bg-color="#DD8EA4" icon-size="medium")
+      TimelineItem(bg-color="#FDDD89" icon-size="medium")
         h1.time 2020 
         h1 APP 移動應用創新賽 晉級決賽
         ul
           li  記錄心情並能不受時空間限制對朋友表達關心之APP【顏色 countenance】 
-          li  負責工作: 前端、影片剪輯
-      TimelineItem(bg-color="#FDDD89" icon-size="medium") 
+          li  負責工作: 前端程式、影片剪輯
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium") 
         h1.time 2019/7 - 2019/12 
         h1 Digi+ Talent 計畫 商研院實習生
         ul
           li  實習單位: 商研院 KKday
-          li  專題: 以機器學習降低盜刷風險 【入選Digi+數位新星大賞】
-          li  負責工作: 成果網頁製作（介面設計、程式）
-      TimelineItem(bg-color="#FDDD89" icon-size="medium") 
+          li  專題: 以機器學習降低盜刷風險 
+            u 【入選Digi+數位新星大賞】
+          li  負責工作: 成果網頁製作（介面設計、前端程式）
+          li 增進團隊合作、人際互動能力
+          li 增進網頁製作實務能力
+      TimelineItem(bg-color="#DD8EA4" icon-size="medium") 
         h1.time 2017/7 - 2019/8
         h1 蘆洲吉的堡美語 工讀
         ul
           li  負責工作: 國小學童美語補課、作業輔導、電話測驗
-  .contact
+          li 這份工作經驗在畢業專題中能發揮，因為客群是國小學童，在主題發想或製作過程中讓我能夠站在孩子角度提出想法
+  .contact  
     .title Contact
     .contactBoxes
       a(href="https://github.com/s110519018")
@@ -182,6 +188,8 @@ export default {
     display: flex
     flex-direction: column
     gap: 36px 0px
+    @include mobile
+      width: 80%
     .title
       &:after
         content: ''

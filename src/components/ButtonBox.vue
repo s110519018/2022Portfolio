@@ -1,5 +1,6 @@
 <template lang="pug">
-button.buttonBox(@click="changePage(this.action,this.path)") {{ content }}
+button.buttonBox(v-if="action=='router'" @click="changePage(this.path)") {{ content }}
+a.buttonBox(v-if="action=='link'" :href='path' target="_blank") {{ content }}
 </template>
 
 <script>
@@ -12,9 +13,8 @@ export default {
     path: String,
   },
   methods: {
-    changePage(action, path) {
-      if (action == "router") router.push("/" + path);
-      else window.location.href = path;
+    changePage(path) {
+      router.push("/" + path);
     },
   },
 };
@@ -22,6 +22,10 @@ export default {
 
 <style lang="sass" scope>
 @import "../assets/sass/global.sass";
+a.buttonBox
+  text-decoration: none
+  &:active,&:focus,&:hover
+    color: $color_blue
 .buttonBox
   padding: 10px 24px
   background-color: $color_yellow

@@ -32,6 +32,7 @@ export default {
   padding: 20px 24px
   @include H2
   @include mobile
+    padding-top: 4px
     @include P
   .title
     @include H2_Bold

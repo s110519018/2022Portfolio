@@ -3,16 +3,16 @@ Fragment
   .loading(v-if="isLoading")
     font-awesome-icon(icon='spinner' spin)
   .portfoliodetail(v-if="!isLoading")
-    a.backBtn(@click.prevent="goBack()")
+    .backBtn(@click.prevent="goBack()")
       font-awesome-icon(:icon="['fas', 'angle-left']")
       h1 Back
     .detailBox
       .Box_img
-        img(:src="workData.img")
+        img(:src="workData.img_detail")
       .Box_content
         .content_title {{workData.title}}
         .content_time {{workData.time}}
-        .content_job {{workData.job}}
+        .content_job 負責工作【{{workData.job}}】
         .content_content(v-html="workData.content")
         .content_skillsbox
           .skill(v-for="skill in workData.skills") {{skill}}
@@ -104,6 +104,7 @@ export default {
       flex-wrap: wrap
       justify-content: space-around
     .Box_img
+      max-width: 500px
       @include pad
         width: 70%
       @include mobile
@@ -145,6 +146,7 @@ export default {
         padding: 10px 12px
         background-color: $color_pink
         border-radius: 8px
+        color: $color_white
       .content_content
         @include pad
           text-align: center

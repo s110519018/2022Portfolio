@@ -35,7 +35,7 @@ Fragment
         .skill-item
           font-awesome-icon(:icon="['fas', 'globe']")
           span TOEIC 735 
-          span TOPIK II
+          span TOPIK 二級
       AboutMeBox(vertical=true title="Work Experience")
         p 2020/9 - 2022/8 資策會 企劃與推廣處 工讀  
         p 2019/7 - 2019/12 Digi+ Talent 計畫 實習
@@ -189,6 +189,8 @@ export default {
   flex-direction: column
   align-items: center
   gap: 60px
+  @include mobile
+    padding: 0 36px
   .title
     align-self: start
     @include mobile
@@ -208,6 +210,8 @@ export default {
   justify-content: center
   gap: 84px
   flex-wrap: wrap
+  @include mobile
+    gap: 36px
   .skill-item
     display: flex
     flex-direction: column
