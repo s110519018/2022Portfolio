@@ -15,4 +15,6 @@ footer
   color: $color_white
   height: 180px
   @include H1_Bold
+  @include mobile
+    @include H2_Bold
 </style>

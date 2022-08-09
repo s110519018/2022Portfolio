@@ -17,8 +17,7 @@ Fragment
         .content_skillsbox
           .skill(v-for="skill in workData.skills") {{skill}}
         .content_bottonsbox
-          Fragment(v-for="button in workData.btn")
-            ButtonBox(action="link" :path="button.btn_content" :content="button.btn_title")
+          ButtonBox(v-for="button in workData.btn" action="link" :path="button.btn_content" :content="button.btn_title")
 </template>
 
 <script>

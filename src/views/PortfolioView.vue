@@ -71,6 +71,8 @@ export default {
   text-decoration: underline !important
 .title
   @include H1_Bold
+  @include mobile
+    text-align: center
 .portfolio
   padding: 108px 40px
   display: flex
@@ -87,7 +89,10 @@ export default {
       background-color: $color_blue
       border-radius: 32px
       margin-top: 16px
-
+    @include mobile
+      &:after
+        margin: 0 auto
+        margin-top: 16px
   .category
     display: flex
     justify-content: flex-start
@@ -99,7 +104,8 @@ export default {
       a
         text-decoration: none
         color: $color_blue
-
+    @include mobile
+      justify-content: center
   .portfolioBoxes
     display: flex
     justify-content: space-around

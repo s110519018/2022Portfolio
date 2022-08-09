@@ -138,6 +138,7 @@ export default {
 .title
   @include H1_Bold
   @include mobile
+    text-align: center
     @include H2_Bold
 .about
   box-sizing: border-box
@@ -190,6 +191,7 @@ export default {
     gap: 36px 0px
     @include mobile
       width: 80%
+      gap: 20px 0px
     .title
       &:after
         content: ''
@@ -199,7 +201,11 @@ export default {
         background-color: $color_blue
         border-radius: 32px
         margin-top: 16px
+      @include mobile
+        &:after
+          display: none
     .content
+      text-indent: 2em
     .ButtonBox
       display: flex
       flex-wrap: wrap
