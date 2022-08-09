@@ -137,9 +137,8 @@ export default {
     margin-bottom: 52px
 .title
   @include H1_Bold
-  @include mobile
+  @include pad
     text-align: center
-    @include H2_Bold
 .about
   box-sizing: border-box
   padding: 108px 40px
@@ -201,7 +200,7 @@ export default {
         background-color: $color_blue
         border-radius: 32px
         margin-top: 16px
-      @include mobile
+      @include pad
         &:after
           display: none
     .content
@@ -210,6 +209,8 @@ export default {
       display: flex
       flex-wrap: wrap
       gap: 24px 5%
+      @include pad
+        justify-content: center
 
 .skills
   .SkillsBoxes

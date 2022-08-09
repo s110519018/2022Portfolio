@@ -94,8 +94,6 @@ export default {
 @import "../assets/sass/global.sass";
 .title
   @include H1_Bold
-  @include mobile
-    @include H2_Bold
 .top
   position: relative
   background-color: $color-background
@@ -155,6 +153,9 @@ export default {
       @include mobile
         @include P_Bold
         align-items: center
+      .title
+        @include mobile
+          @include H2_Bold
       .school
         display: flex
         flex-direction: row
